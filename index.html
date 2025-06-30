@@ -1,4 +1,146 @@
-<html>
-    <H1>Hello World</H1>
-    <h2>Hello</h2>
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio | Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="themes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="quote">
+            <p>" Turning data into insights, ideas into reality "</p>
+        </div>
+        <nav>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="projects.html">Projects</a>
+                <a href="contact.html">Contact</a>
+                <a href="certificate.html">Certificates</a>
+            </div>
+            <button id="theme-toggle" aria-label="Toggle theme">
+                <i class="fas fa-moon"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Left: Profile Photo -->
+        <div class="profile-pic">
+            <img src="Vitthal.png" alt="Profile Photo">
+        </div>
+
+        <!-- Right: Profile Info -->
+        <div class="profile-info">
+            <h1>Vitthal M. Bulbule</h1>
+            <p class="title">  Python | Data Analyst</p>
+            <p class="bio">
+                "Aspiring Data Science Engineer | Python Enthusiat | Exploring AI & Data Science | Web Development | Pursuing B.tech In AI-DS Engineering  
+            </p>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/vitthal-bulbule-796558288/" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/vitthalbulbule" class="github"><i class="fab fa-github"></i></a>
+                <a href="https://mail.google.com/mail/u/0/#inbox" class="email"><i class="fas fa-envelope"></i></a>
+                <a href="#contact" class="contact"><i class="fas fa-phone-alt"></i></a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Additional Sections -->
+    <section id="about" class="section-container">
+        <div class="section-content">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <p>I am a passionate and dedicated learner currently completing my Diploma in Computer Engineering and preparing to pursue Direct Second Year Engineering. I have a strong interest in Data Analysis and Data Science, and I am constantly building my skills to become a future-ready professional in this field.</p>
+                <p>I have a solid foundation in Python, SQL, and the basics of Data Structures and Algorithms, which help me solve problems efficiently. I have also completed a 6-week industrial training as a Python Developer at CCA Techno Pvt. Ltd., where I gained practical experience and strengthened my coding skills.</p>
+                <p>I am now focused on expanding my knowledge in data analytics, working on real-world datasets, and developing insights that add value. I enjoy learning new tools, collaborating on projects, and turning data into meaningful stories.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="section-container">
+        <div class="section-content">
+            <h2 class="section-title">Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2025 - 2028</div>
+                    <div class="timeline-content">
+                        <h3>B.Tech In Computer Engineering</h3>
+                        <p>University of Technology, Pune</p>
+                        <p>Specialization in Web Technologies</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2022 - 2025</div>
+                    <div class="timeline-content">
+                        <h3>Diploma In Computer Engg.</h3>
+                        <p>Shri Shivaji Polytechnic Institute </p>
+                        <p>Parbhani 431 401</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section-container">
+        <div class="section-content">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <i class="fab fa-python"></i>
+                    <span>Python</span>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Data Analyst</span>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-database"></i>
+                    <span>Data Scientist</span>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-database"></i>
+                    <span>MySQL</span>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-code"></i>
+                    <span>Web Developer</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="hobbies" class="section-container">
+        <div class="section-content">
+            <h2 class="section-title">Hobbies & Interests</h2>
+            <div class="hobbies-grid">
+                <div class="hobby-item">
+                    <i class="fas fa-plane"></i>
+                    <span>Traveling</span>
+                </div>
+                <div class="hobby-item">
+                    <i class="fas fa-camera"></i>
+                    <span>Photography</span>
+                </div>
+                <div class="hobby-item">
+                    <i class="fas fa-music"></i>
+                    <span>Music</span>
+                </div>
+                <div class="hobby-item">
+                    <i class="fas fa-baseball-ball"></i>
+                    <span>Cricket</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script src="theme.js"></script>
+</body>
 </html>

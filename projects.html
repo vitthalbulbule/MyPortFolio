@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects | Vitthal M. Bulbule</title>
+    <link rel="stylesheet" href="themes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===== Base Styles ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+            --primary: #6a11cb;
+            --secondary: #2575fc;
+            --bg: #f9f9f9;
+            --bg-hover: #f0f0f0;
+            --text: #333;
+            --text-light: #666;
+            --section-bg: #fff;
+            --card-bg: #fff;
+        }
+
+        body[data-theme="dark"] {
+            --primary: #6a11cb;
+            --secondary: #2575fc;
+            --bg: #121212;
+            --bg-hover: #1e1e1e;
+            --text: #f5f5f5;
+            --text-light: #aaa;
+            --section-bg: #1e1e1e;
+            --card-bg: #252525;
+        }
+
+        /* ===== Header ===== */
+        header {
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            background: var(--bg);
+            z-index: 100;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .quote {
+            font-style: italic;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 600;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        #theme-toggle {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: var(--text);
+            padding: 0.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #theme-toggle:hover {
+            background: var(--bg-hover);
+        }
+
+        /* ===== Projects Section ===== */
+        .projects-container {
+            padding: 5% 10%;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            bottom: -10px;
+            left: 0;
+            border-radius: 2px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(106, 17, 203, 0.2);
+        }
+
+        .project-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .project-description {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tag {
+            background: rgba(106, 17, 203, 0.1);
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .live-link {
+            background: var(--primary);
+            color: white;
+        }
+
+        .live-link:hover {
+            background: #5a0db3;
+        }
+
+        .code-link {
+            background: var(--bg-hover);
+            color: var(--text);
+        }
+
+        .code-link:hover {
+            background: var(--card-bg);
+        }
+
+        /* ===== Animations ===== */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .project-card {
+            animation: fadeIn 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        .project-card:nth-child(1) { animation-delay: 0.1s; }
+        .project-card:nth-child(2) { animation-delay: 0.2s; }
+        .project-card:nth-child(3) { animation-delay: 0.3s; }
+        .project-card:nth-child(4) { animation-delay: 0.4s; }
+
+        /* ===== Responsive Design ===== */
+        @media (max-width: 1024px) {
+            .projects-container {
+                padding: 5%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .quote {
+                margin-bottom: 1rem;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-links {
+                flex-direction: column;
+            }
+            
+            .project-link {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="quote">
+            <p>"Turning data into insights, ideas into reality"</p>
+        </div>
+        <nav>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="#projects">Projects</a>
+                <a href="contact.html">Contact</a>
+                <a href="certificate.html">Certificates</a>
+            </div>
+            <button id="theme-toggle" aria-label="Toggle theme">
+                <i class="fas fa-moon"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Projects Section -->
+    <main class="projects-container">
+        <h2 class="section-title">My Projects</h2>
+        
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Student Future Educational Consultant">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Student Future Educational Consultant</h3>
+                    <p class="project-description">
+                        A comprehensive educational platform that helps students choose the right career path by providing 
+                        detailed information about various educational streams, career options, and required skills. 
+                        The website includes course recommendations, institution comparisons, and career counseling resources.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">MySQL</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://studentfutureconsultant.com" class="project-link live-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                        <a href="https://github.com/vitthalbulbule/localreport" class="project-link code-link" target="_blank">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 2 -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Data Analysis Dashboard">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Educational Data Analysis Dashboard</h3>
+                    <p class="project-description">
+                        An interactive dashboard that analyzes educational trends, student performance metrics, and 
+                        career outcomes. Visualizes complex educational data to help institutions make data-driven 
+                        decisions about curriculum development and student support services.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Pandas</span>
+                        <span class="tech-tag">Matplotlib</span>
+                        <span class="tech-tag">Seaborn</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link live-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                        <a href="#" class="project-link code-link" target="_blank">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 3 -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Career Path Recommender">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">AI Career Path Recommender</h3>
+                    <p class="project-description">
+                        A machine learning-based system that recommends optimal career paths based on student's academic 
+                        performance, skills, interests, and personality traits. Uses collaborative filtering and 
+                        content-based recommendation algorithms to provide personalized suggestions.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Scikit-learn</span>
+                        <span class="tech-tag">Pandas</span>
+                        <span class="tech-tag">Data Visualition</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link live-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                        <a href="#" class="project-link code-link" target="_blank">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    
+        <script src="script.js"></script>
+    <script src="theme.js"></script>
+</body>
+</html>

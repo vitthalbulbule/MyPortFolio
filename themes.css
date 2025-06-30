@@ -1,0 +1,17 @@
+/* ===== Light Theme (Default) ===== */
+:root {
+    --primary: #6a11cb;
+    --secondary: #2575fc;
+    --text: #333;
+    --bg: #f9f9f9;
+    --card-bg: #ffffff;
+}
+
+/* ===== Dark Theme ===== */
+[data-theme="dark"] {
+    --primary: #8e2de2;
+    --secondary: #4a00e0;
+    --text: #f0f0f0;
+    --bg: #121212;
+    --card-bg: #1e1e1e;
+}

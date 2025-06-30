@@ -1,0 +1,457 @@
+
+
+
+
+/* ===== Base Styles ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    transition: background 0.3s, color 0.3s;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ===== Header ===== */
+header {
+    padding: 2rem 5%;
+    display: flex;
+    justify-content: flex-end;
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    z-index: 100;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 600;
+    position: relative;
+    font-size: 1rem;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+#theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--text);
+    padding: 0.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#theme-toggle:hover {
+    background: var(--bg-hover);
+}
+
+/* ===== Main Content ===== */
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5% 10%;
+    min-height: 80vh;
+    gap: 5rem;
+}
+
+.profile-pic {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--primary);
+    box-shadow: 0 10px 30px rgba(106, 17, 203, 0.3);
+    animation: float 4s ease-in-out infinite;
+}
+
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-info {
+    max-width: 500px;
+    animation: slideIn 1s ease-out;
+}
+
+.profile-info h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.profile-info .title {
+    font-size: 1.2rem;
+    
+    color: var(--secondary);
+    margin-bottom: 1rem;
+}
+
+.profile-info .bio {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.social-icons a {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.social-icons a:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 10px 20px rgba(106, 17, 203, 0.3);
+}
+
+.linkedin { background: #0A66C2; color: white; }
+.github { background: #333; color: white; }
+.email { background: #EA4335; color: white; }
+.contact { background: var(--primary); color: white; }
+
+/* ===== Section Styles ===== */
+.section-container {
+    padding: 4rem 10%;
+    background: var(--section-bg);
+}
+
+.section-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 4px;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    bottom: -10px;
+    left: 0;
+    border-radius: 2px;
+}
+
+.about-content {
+    display: grid;
+    gap: 1.5rem;
+    line-height: 1.7;
+    font-size: 1.1rem;
+}
+
+/* ===== Timeline ===== */
+.timeline {
+    position: relative;
+    padding-left: 2rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background: var(--primary);
+    left: 0;
+    top: 0;
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 2rem;
+    padding-left: 2rem;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: var(--secondary);
+    left: -8px;
+    top: 5px;
+}
+
+.timeline-date {
+    font-weight: 600;
+    color: var(--secondary);
+    margin-bottom: 0.5rem;
+}
+
+.timeline-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-content p {
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* ===== Skills Grid ===== */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1.5rem;
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1.5rem 1rem;
+    background: var(--card-bg);
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.skill-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(106, 17, 203, 0.1);
+}
+
+.skill-item i {
+    font-size: 2rem;
+    color: var(--primary);
+}
+
+.skill-item span {
+    font-weight: 500;
+}
+
+/* ===== Hobbies Grid ===== */
+.hobbies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1.5rem;
+}
+
+.hobby-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1.5rem 1rem;
+    background: var(--card-bg);
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.hobby-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(106, 17, 203, 0.1);
+}
+
+.hobby-item i {
+    font-size: 2rem;
+    color: var(--primary);
+}
+
+.hobby-item span {
+    font-weight: 500;
+    text-align: center;
+}
+
+/* ===== Animations ===== */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 1024px) {
+    .container {
+        padding: 5%;
+    }
+    
+    .section-container {
+        padding: 4rem 5%;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 1.5rem 5%;
+    }
+    
+    .nav-links {
+        gap: 1rem;
+    }
+    
+    .container {
+        flex-direction: column;
+        text-align: center;
+        gap: 3rem;
+    }
+
+    .profile-pic {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .profile-info {
+        align-items: center;
+    }
+    
+    .social-icons {
+        justify-content: center;
+    }
+    
+    .timeline {
+        padding-left: 1rem;
+    }
+    
+    .timeline-item {
+        padding-left: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        flex-direction: column-reverse;
+        gap: 1rem;
+    }
+    
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .profile-info h1 {
+        font-size: 2.2rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .skills-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+    
+    .hobbies-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+}
+
+
+
+
+/* ===== Skills Grid ===== */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1.5rem;
+}
+
+/* ===== Hobbies Grid ===== */
+.hobbies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1.5rem;
+}
+
+
+
+/* ===== Header ===== */
+header {
+    padding: 1.5rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    
+    background: var(--bg);
+    z-index: 100;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.quote {
+    font-style: italic;
+    color: var(--primary);
+    font-weight: 500;
+}
+
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .quote {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .skills-grid,
+    .hobbies-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+}
